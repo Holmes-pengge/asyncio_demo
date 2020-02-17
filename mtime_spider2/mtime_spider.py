@@ -244,9 +244,9 @@ class SpiderMan(object):
                 data = self.parser.parse_json(rank_url, rank_content)
                 print(data)
             except Exception as err:
-                logger.error('crawl failed')
+                logger.error('crawler failed')
             time.sleep(0.5)
-        logger.info("crawl finished")
+        logger.info("crawler finished")
 
 
 if __name__ == '__main__':
