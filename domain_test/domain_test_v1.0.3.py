@@ -37,16 +37,9 @@ class PingDomain:
                 item = {
                     "url": host,
                     "isalvie": 1,
-                    "finalurl": "https://{}".format(host),
+                    "finalurl": "http://{}".format(host),
                 }
-        except TimeoutError:
-            item = {
-                "url": host,
-                "isalvie": 0,
-                "finalurl": "",
-            }
-
-        except Exception as exc:
+        except (TimeoutError, AttributeError, socket.gaierror, socket.error, Exception):
             item = {
                 "url": host,
                 "isalvie": 0,
