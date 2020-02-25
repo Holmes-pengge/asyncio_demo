@@ -49,8 +49,10 @@ def fetch():
             try:
                 # p = proxy_pool.random_one
                 resp = s.get(url, proxies=proxy, timeout=timeout)
-                print(resp.status_code)
-                print(resp.text)
+                if resp.status_code == 200:
+                    print(resp.status_code)
+                    print(resp.text)
+                    break
             except requests.exceptions.ProxyError as exc:
                 print("proxy error")
                 continue
